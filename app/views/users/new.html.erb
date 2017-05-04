@@ -1,0 +1,10 @@
+<%= render partial: 'shared/form_errors', locals: { form: user } %>
+
+<%= form_for user do |f| %>
+  <%= f.text_field :username, placeholder: 'username' %>
+  <%= f.text_field :email, placeholder: 'email' %>
+  <%= f.select :company_id, options_from_collection_for_select(@companies, :id, :name) %>
+  <%= f.password_field :password, placeholder: 'password' %>
+  <%= f.password_field :password_confirmation, placeholder: 'retype password' %>
+  <%= f.submit %>
+<% end %>
