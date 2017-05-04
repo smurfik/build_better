@@ -9,6 +9,17 @@
   </head>
 
   <body>
+    <header>
+      <% if current_user %>
+        <%= link_to "Sign Out", signout_path, method: :delete %>
+      <% end %>
+    </header>
+
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% elsif flash[:success] %>
+      <%= flash[:success] %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
