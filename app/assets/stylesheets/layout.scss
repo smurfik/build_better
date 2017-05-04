@@ -1,0 +1,4 @@
+.main-wrapper {
+  background-color: $base-background-color;
+  @include grid-column(12);
+}

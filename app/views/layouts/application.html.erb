@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BuildBetter</title>
+    <title>Build Better</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="main-wrapper">
     <header>
       <% if current_user %>
         <%= link_to image_tag('logo.png'), projects_path %>
@@ -20,9 +20,13 @@
     </header>
 
     <% if flash[:notice] %>
-      <%= flash[:notice] %>
+      <div class="flash-notice">
+        <%= flash[:notice] %>
+      </div>
     <% elsif flash[:success] %>
-      <%= flash[:success] %>
+      <div class="flash-success">
+        <%= flash[:success] %>
+      </div>
     <% end %>
     <%= yield %>
   </body>
