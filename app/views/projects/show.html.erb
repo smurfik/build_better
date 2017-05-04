@@ -20,6 +20,7 @@
 <hr>
 <% if !@project.users.empty? %>
   <% @project.users.each do |user| %>
+    <%= gravatar_for(user.email) %>
     <%= user.username %>
     <%= user.email %>
     <% if current_user.admin? %>
