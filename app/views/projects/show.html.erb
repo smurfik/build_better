@@ -1,0 +1,38 @@
+<h2><%= @project.name %>
+<% if current_user.admin? %>
+  <button><%= link_to "Edit Project", edit_project_path(@project) %></button>
+<% end %>
+</h2>
+<%= @project.description %>
+<hr>
+<%= @project.address.street %>
+<%= @project.address.city %>
+<%= @project.address.state %>
+<%= @project.address.zip %>
+<hr>
+
+<% if current_user.admin? %>
+  <%= form_tag project_path(@project), method: "DELETE" do %>
+    <%= submit_tag "Remove", data: {confirm: "Are you sure?"} %>
+  <% end %>
+<% end %>
+
+<hr>
+<% if !@project.users.empty? %>
+  <% @project.users.each do |user| %>
+    <%= user.username %>
+    <%= user.email %>
+    <% if current_user.admin? %>
+      <button>Remove user from project</button>
+    <% end %>
+    <hr>
+  <% end %>
+<% end %>
+
+<% if current_user.admin? %>
+  <div><b>Add people to the project</b></div>
+  <%= form_tag '#' do %>
+    <%= select_tag :user_id, options_from_collection_for_select(current_user.company.users, :id, :username) %>
+    <%= submit_tag "Add" %>
+  <% end %>
+<% end %>

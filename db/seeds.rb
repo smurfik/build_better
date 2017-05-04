@@ -16,7 +16,6 @@ admin = User.create(
           password: "go",
           password_confirmation: "go",
           admin: true)
-admin.create_address(street: "The Street", city: "Phoenix", state: "AZ", zip: "85001")
 
 project_1 = Project.create(
   name: "The Tallest Building",
@@ -33,3 +32,28 @@ project_2 = Project.create(
   company_id: company.id)
 
 project_2.create_address(street: "123 East Street", city: "Seattle", state: "WA", zip: "98102")
+
+bob = User.create(
+          username: "bob",
+          email: "bob@example.com",
+          company_id: company.id,
+          password: "go",
+          password_confirmation: "go")
+
+molly = User.create(
+          username: "molly",
+          email: "molly@example.com",
+          company_id: company.id,
+          password: "go",
+          password_confirmation: "go")
+
+
+frank = User.create(
+          username: "frank",
+          email: "frank@example.com",
+          company_id: company.id,
+          password: "go",
+          password_confirmation: "go")
+
+bob.projects << project_1
+molly.projects << project_1

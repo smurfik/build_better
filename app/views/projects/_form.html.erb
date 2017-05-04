@@ -1,0 +1,13 @@
+<%= render partial: 'shared/form_errors', locals: { form: @project } %>
+
+<%= form_for @project do |f| %>
+  <%= f.text_field :name, placeholder: 'Animal Store' %>
+  <%= f.text_area :description, placeholder: 'describe the project' %>
+  <%= f.fields_for :address, @project.address || @project.build_address do |address| %>
+    <%= address.text_field :street, placeholder: '123 Main Streen' %>
+    <%= address.text_field :city, placeholder: 'Rockville' %>
+    <%= address.text_field :state, placeholder: 'MD' %>
+    <%= address.text_field :zip, placeholder: '20983' %>
+  <% end %>
+  <%= f.submit %>
+<% end %>

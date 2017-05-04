@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def index
+    redirect_to projects_path if current_user
   end
 
   def new
