@@ -40,3 +40,9 @@
     <%= submit_tag "Add" %>
   <% end %>
 <% end %>
+
+<% if @weather.present? %>
+  <%= @weather[:description] %>
+  <%= @weather[:temp] %>
+  <%= image_tag(@weather[:image]) %>
+<% end %>

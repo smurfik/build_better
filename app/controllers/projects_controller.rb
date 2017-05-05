@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
     else
       @project = current_user.projects.find(params[:id])
     end
+    @weather ||= Weather.get_weather(@project.address.zip)
   end
 
   def create
