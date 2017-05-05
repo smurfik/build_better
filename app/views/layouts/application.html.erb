@@ -12,7 +12,7 @@
     <header>
       <% if current_user %>
         <%= link_to image_tag('logo.png'), projects_path %>
-        <%= link_to "Sign Out", signout_path, method: :delete %>
+        <button><%= link_to "Sign Out", signout_path, method: :delete %></button>
         <h1><%= current_user.company.name %></h1>
       <% else %>
         <%= link_to image_tag('logo.png'), root_path %>

@@ -13,7 +13,7 @@
 
 <% if current_user.admin? %>
   <%= form_tag project_path(@project), method: "DELETE" do %>
-    <%= submit_tag "Delete Project", data: {confirm: "Are you sure?"} %>
+    <%= submit_tag "Delete Project", data: {confirm: "Are you sure?"}, class: "danger" %>
   <% end %>
 <% end %>
 
@@ -26,7 +26,7 @@
     <% if current_user.admin? %>
       <%= form_tag projects_user_path(@project), method: "DELETE" do %>
         <%= hidden_field_tag :user_id, user.id %>
-        <%= submit_tag "X", data: {confirm: "Are you sure?"} %>
+        <%= submit_tag "X", data: {confirm: "Are you sure?"}, class: "danger" %>
       <% end %>
     <% end %>
     <hr>

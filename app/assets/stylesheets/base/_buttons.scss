@@ -1,6 +1,6 @@
 #{$all-buttons} {
   appearance: none;
-  // background-color: $action-color;
+  background-color: darken($light-gray, 25%);
   border: 0;
   border-radius: $base-border-radius;
   color: #fff;

@@ -9,6 +9,19 @@ header {
   img {
     padding: 25px;
   }
+  button {
+    float: right;
+    margin: 25px;
+  }
+  h1 {
+    font-size: 30px;
+    text-align: center;
+    letter-spacing: 0.07em;
+  }
+}
+
+a, a:hover {
+  color: white;
 }
 
 .center {
@@ -20,3 +33,7 @@ header {
     text-align: left;
   }
 }
+
+.danger:hover {
+  background: $danger;
+  }
