@@ -10,3 +10,13 @@ header {
     padding: 25px;
   }
 }
+
+.center {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+
+  .left {
+    text-align: left;
+  }
+}
