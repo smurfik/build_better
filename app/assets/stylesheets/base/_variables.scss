@@ -17,20 +17,21 @@ $base-z-index: 0;
 
 // Colors
 $blue: #1565c0;
-$dark-gray: #333;
+$green: #2db34a;
+$dark-gray: #42444e;
 $medium-gray: #999;
 $light-gray: #ddd;
 
 // Font Colors
 $base-font-color: $dark-gray;
-$action-color: $blue;
+$action-color: $green;
 
 // Border
 $base-border-color: $light-gray;
 $base-border: 1px solid $base-border-color;
 
 // Background Colors
-$base-background-color: #FDF0D5;
+$base-background-color: #e5ede8;
 $secondary-background-color: tint($base-border-color, 75%);
 
 // Forms
