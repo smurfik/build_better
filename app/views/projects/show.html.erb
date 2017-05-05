@@ -13,7 +13,7 @@
 
 <% if current_user.admin? %>
   <%= form_tag project_path(@project), method: "DELETE" do %>
-    <%= submit_tag "Remove", data: {confirm: "Are you sure?"} %>
+    <%= submit_tag "Delete Project", data: {confirm: "Are you sure?"} %>
   <% end %>
 <% end %>
 
@@ -24,16 +24,19 @@
     <%= user.username %>
     <%= user.email %>
     <% if current_user.admin? %>
-      <button>Remove user from project</button>
+      <%= form_tag projects_user_path(@project), method: "DELETE" do %>
+        <%= hidden_field_tag :user_id, user.id %>
+        <%= submit_tag "X", data: {confirm: "Are you sure?"} %>
+      <% end %>
     <% end %>
     <hr>
   <% end %>
 <% end %>
 
-<% if current_user.admin? %>
+<% if current_user.admin? && @unassigned_users.present? %>
   <div><b>Add people to the project</b></div>
-  <%= form_tag '#' do %>
-    <%= select_tag :user_id, options_from_collection_for_select(current_user.company.users, :id, :username) %>
+  <%= form_tag projects_users_path(@project) do %>
+    <%= select_tag :user_id, options_from_collection_for_select(@unassigned_users, :id, :username) %>
     <%= submit_tag "Add" %>
   <% end %>
 <% end %>
