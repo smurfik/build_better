@@ -1,6 +1,6 @@
 # Build Better
 
-Check it out here: <>
+Check it out here: <https://build-better.herokuapp.com>
 
 Test Users:
 email: `admin@example.com` password: `go`
