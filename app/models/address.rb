@@ -3,4 +3,5 @@ class Address < ApplicationRecord
 
   validates :state, length: {maximum: 2}
   validates :street, :city, :state, :zip, presence: true
+  validates :zip, numericality: { only_integer: true }
 end

@@ -1,24 +1,41 @@
-# README
+# Build Better
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Check it out here: <>
 
-Things you may want to cover:
+Test Users:
+email: `admin@example.com` password: `go`
+email: `bob@example.com` password: `go`
 
-* Ruby version
+This is a construction themed demo project. The project uses these concepts:
+- many to many DB relationship
+- polymorphic association
+- form with nested attributes
+- api call to OpenWeather
+- CRUD operations for a project model
 
-* System dependencies
+While building this project, I've used:
+- postgreSQL
+- rspec
+- httparty
+- bourbon/neat
 
-* Configuration
+As an admin user you can:
+- create, update, and delete a project
+- assign and unassign people to a project
+- view all of the projects your company has
 
-* Database creation
+As a regular user you can:
+- view all of the projects you're assigned to
+- see all of the people that are on the project
+- see a show page for a project
 
-* Database initialization
+In the seed file I created a company, and all of the users are added to that
+company. For the demo purposes, there isn't an interface for creating a company.
+If there are multiple companies, user, when signing up can decide which company
+to be added to.
 
-* How to run the test suite
+I used Gravatar for user's picture. For project pictures, I used a demo
+photo for now, not letting the user to add a photo. I'd use Amazon S3 services
+to store the images, but I currently don't have an account with them.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Finally, Bourbon and Neat helped me style the website.
