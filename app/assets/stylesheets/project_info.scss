@@ -1,0 +1,35 @@
+.project-info {
+  img {
+    @include grid-column(3);
+    margin: 0 5px 30px 0;
+    border-radius: 2px;
+  }
+
+  .project {
+    @include grid-column(12);
+  }
+
+  .text {
+    @include grid-column(9);
+  }
+
+  h1 {
+    letter-spacing: 0.02em;
+    color: lighten($base-font-color, 10%);
+    font-size: 20px;
+  }
+
+  .address {
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: lighten($base-font-color, 15%);
+  }
+}
+
+.add-new {
+  position: fixed;
+  bottom: 0;
+  right: 150px;
+  height: 50px;
+}

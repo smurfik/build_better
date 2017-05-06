@@ -1,0 +1,77 @@
+.edit {
+  button {
+    @include grid-column(2);
+    @include grid-push(8);
+    margin-right: 15px;
+    margin-bottom: 20px;
+  }
+}
+
+.group {
+  @include grid-column(12);
+}
+
+.weather {
+  @include grid-column(6);
+  font-variant: small-caps;
+  font-size: 18px;
+  text-align: center;
+
+  img {
+    margin: 10px 0px;
+  }
+}
+
+.add-people {
+  @include grid-column(6);
+  font-variant: small-caps;
+  font-size: 18px;
+  text-align: center;
+
+  select {
+    display: inline-block;
+  }
+
+  form {
+    margin: 40px 0px;
+  }
+
+  input {
+    margin-left: 10px;
+  }
+}
+
+.assigned-ppl:before {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.assigned-ppl {
+  h2 {
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 0.02em;
+    margin: 50px 0px;
+    color: lighten($base-font-color, 5%);
+  }
+
+  img {
+    border-radius: 5px;
+    float: left;
+    margin: 0px 10px 40px 25px;
+  }
+
+  .email {
+    float: left;
+  }
+
+  .person {
+    @include grid-column(3);
+  }
+
+  .delete-person {
+    padding: 0.25em 0.5em;
+    float: right;
+  }
+}

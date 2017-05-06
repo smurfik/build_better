@@ -1,15 +1,8 @@
-<h2><%= @project.name %>
 <% if current_user.admin? %>
-  <button><%= link_to "Edit Project", edit_project_path(@project) %></button>
+  <div class="edit">
+    <button><%= link_to "Edit Project", edit_project_path(@project) %></button>
+  </div>
 <% end %>
-</h2>
-<%= @project.description %>
-<hr>
-<%= @project.address.street %>
-<%= @project.address.city %>
-<%= @project.address.state %>
-<%= @project.address.zip %>
-<hr>
 
 <% if current_user.admin? %>
   <%= form_tag project_path(@project), method: "DELETE" do %>
@@ -17,32 +10,48 @@
   <% end %>
 <% end %>
 
-<hr>
-<% if !@project.users.empty? %>
-  <% @project.users.each do |user| %>
-    <%= gravatar_for(user.email) %>
-    <%= user.username %>
-    <%= user.email %>
-    <% if current_user.admin? %>
-      <%= form_tag projects_user_path(@project), method: "DELETE" do %>
-        <%= hidden_field_tag :user_id, user.id %>
-        <%= submit_tag "X", data: {confirm: "Are you sure?"}, class: "danger" %>
+<div class="project-info">
+  <%= render partial: 'project_info', locals: { project: @project } %>
+</div>
+
+<div class="group">
+  <% if @weather.present? %>
+    <div class="weather">
+      <div>Current Weather</div>
+      <%= image_tag(@weather[:image]) %>
+      <div><%= @weather[:temp] %></div>
+      <div><%= @weather[:description] %></div>
+    </div>
+  <% end %>
+
+  <% if current_user.admin? && @unassigned_users.present? %>
+    <div class="add-people">
+      <div>Add people to the project</div>
+      <%= form_tag projects_users_path(@project) do %>
+        <%= select_tag :user_id, options_from_collection_for_select(@unassigned_users, :id, :username) %>
+        <%= submit_tag "Add" %>
       <% end %>
+    </div>
+  <% end %>
+</div>
+
+<hr>
+
+<% if @project.users.present? %>
+  <div class="assigned-ppl">
+    <h2>People assigned to the project:</h2>
+    <% @project.users.each do |user| %>
+      <div class="person">
+        <%= gravatar_for(user.email) %>
+        <div><%= user.username %></div>
+        <div class="email"><%= user.email %></div>
+        <% if current_user.admin? %>
+          <%= form_tag projects_user_path(@project), method: "DELETE" do %>
+            <%= hidden_field_tag :user_id, user.id %>
+            <%= submit_tag "x", data: {confirm: "You're unassigning #{user.username.capitalize}, are you sure?"}, class: "danger delete-person" %>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
-    <hr>
-  <% end %>
-<% end %>
-
-<% if current_user.admin? && @unassigned_users.present? %>
-  <div><b>Add people to the project</b></div>
-  <%= form_tag projects_users_path(@project) do %>
-    <%= select_tag :user_id, options_from_collection_for_select(@unassigned_users, :id, :username) %>
-    <%= submit_tag "Add" %>
-  <% end %>
-<% end %>
-
-<% if @weather.present? %>
-  <%= @weather[:description] %>
-  <%= @weather[:temp] %>
-  <%= image_tag(@weather[:image]) %>
+  </div>
 <% end %>
