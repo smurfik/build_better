@@ -12,7 +12,7 @@ admin = User.create(
 project_1 = Project.create(
   name: "The Tallest Building",
   description: "Prior to 1998, the tallest building status was determined by the height of the building to the top of its architectural elements including spires, but not including 'temporary' structures (such as antennas or flagpoles), which could be added or changed relatively easily without requiring major changes to the building's design.",
-  image_url: "tallest_building",
+  image_url: "tallest_building.jpg",
   company_id: company.id)
 
 project_1.create_address(street: "123 Main Street", city: "Rockville", state: "MD", zip: "20853")
