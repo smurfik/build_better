@@ -1,0 +1,4 @@
+user:
+  email: user@test.com
+  username: test_user
+  password_digest: go
