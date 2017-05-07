@@ -1,6 +1,9 @@
 company = Company.create(name: "Sunny Construction")
 company.create_address(street: "4 Sunny Street", city: "Seattle", state: "WA", zip: "98102")
 
+company_2 = Company.create(name: "Cloudy Construction")
+company_2.create_address(street: "4 Cloudy Street", city: "Seattle", state: "WA", zip: "98102")
+
 admin = User.create(
           username: "admin",
           email: "admin@example.com",
