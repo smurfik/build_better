@@ -1,11 +1,5 @@
 # Build Better
 
-Check it out here: <https://build-better.herokuapp.com>
-
-Demo Users:
-- email: `admin@example.com` password: `go`
-- email: `bob@example.com` password: `go`
-
 As an admin user you can:
 - create, update, and delete a project
 - assign and unassign people to a project
